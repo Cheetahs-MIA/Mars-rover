@@ -136,6 +136,99 @@ class Rover {
             }
           }
 
+    
+     moveBackward (site) {
+        switch (this.direction) {
+          case 'N':
+            if (this.y < 9) {
+              switch (site[this.y+1][this.x]) {
+                case 'free':
+                  site[this.y+1][this.x] = this.name;
+                  site[this.y][this.x] = 'free';
+                  this.y++;
+                  this.travelLog.push({x : this.x, y : this.y});
+                  console.log(`${this.name} moved backward.`);
+                  break;
+                case 'crater':
+                  console.log('Crater behind, we can\'t advance!');
+                  break;
+                default:
+                  console.log('Enemy behind, we can\'t advance!');
+                  break;
+              } 
+            } else {
+              console.log('Can\'t leave test site!');
+              break;
+            }
+            break;
+          case 'S':
+            if (this.y > 0) {
+              switch (site[this.y-1][this.x]) {
+                case 'free':
+                  site[this.y-1][this.x] = this.name;
+                  site[this.y][this.x] = 'free';
+                  this.y--;
+                  this.travelLog.push({x : this.x, y : this.y});
+                  console.log(`${this.name} moved backward.`);
+                  break;
+                case 'crater':
+                  console.log('Crater behind, we can\'t advance!');
+                  break;
+                default:
+                  console.log('Enemy behind, we can\'t advance!');
+                  break;
+              } 
+            } else {
+              console.log('Can\'t leave test site!');
+              break;
+            }
+            break;
+          case 'E':
+            if (this.x > 0) {
+              switch (site[this.y][this.x-1]) {
+                case 'free':
+                  site[this.y][this.x-1] = this.name;
+                  site[this.y][this.x] = 'free';
+                  this.x--;
+                  this.travelLog.push({x : this.x, y : this.y});
+                  console.log(`${this.name} moved backward.`);
+                  break;
+                case 'crater':
+                  console.log('Crater behind, we can\'t advance!');
+                  break;
+                default:
+                  console.log('Enemy behind, we can\'t advance!');
+                  break;
+              } 
+            } else {
+              console.log('Can\'t leave test site!');
+              break;
+            }
+            break;
+          case 'W':
+            if (this.x < 9) {
+              switch (site[this.y][this.x+1]) {
+                case 'free':
+                  site[this.y][this.x+1] = this.name;
+                  site[this.y][this.x] = 'free';
+                  this.x++;
+                  this.travelLog.push({x : this.x, y : this.y});
+                  console.log(`${this.name} moved backward.`);
+                  break;
+                case 'crater':
+                  console.log('Crater behind, we can\'t advance!');
+                  break;
+                default:
+                  console.log('Enemy behind, we can\'t advance!');
+                  break;
+              } 
+            } else {
+              console.log('Can\'t leave test site!');
+              break;
+            }
+            break;
+        }
+      }
     }
 
 const testSite = [
