@@ -1,6 +1,7 @@
 const rovers = [];
 class Rover {
-    constructor(name, direction, x, y) {
+    constructor(name, direction, x, y, color) {
+            this.color = color;
             this.name = name;
             this.direction = direction;
             this.x = x;

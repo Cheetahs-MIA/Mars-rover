@@ -16,6 +16,16 @@ table {
 }
 
 .pre-game button {
-    height: 30px;
+    height: 40px;
     align-self: center;
+}
+
+.a-rover {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0;
 }
