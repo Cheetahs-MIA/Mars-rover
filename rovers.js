@@ -7,3 +7,4 @@ class Rover {
         this.travelLog = [{this.x, this.y}];
     }
 }
+
