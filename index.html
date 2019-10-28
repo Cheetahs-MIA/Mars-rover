@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
+
+    <form action="POST">
+        <h2>Create a Rover</h2>
+        <input type="text" placeholder="Choose a name">
+        <label for="direction">Starting direction</label>
+        <select name="direction">
+            <option value="N" selected>North</option>
+            <option value="S">South</option>
+            <option value="E">East</option>
+            <option value="W">West</option>
+        </select>
+        <label for="X">X-coordinate</label>
+        <input type="number" min="0" max="19" name="X">
+        <label for="Y">Y-coordinate</label>
+        <input type="number" min="0" max="19" name="Y">
+    <button>Create Rover</button>
+    </form>
     <script src="./rovers.js"></script>
 </body>
 </html>

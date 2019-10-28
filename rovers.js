@@ -1,12 +1,14 @@
+const rovers = [];
 class Rover {
     constructor(name, direction, x, y) {
-        this.name = name;
-        this.direction = direction;
-        this.x = x;
-        this.y = y;
-        this.travelLog = [{x: x, y: y}];
-    }
-    
+            this.name = name;
+            this.direction = direction;
+            this.x = x;
+            this.y = y;
+            this.travelLog = [{x: x, y: y}];
+            testSite[y][x] = name;
+            rovers.push(this);
+        }
     turnLeft () {
         switch (this.direction) {
             case 'N':
@@ -43,14 +45,14 @@ class Rover {
           console.log(`${this.name} is now facing ${this.direction}.`);
         }
 
-    moveForward = (site) => {
+    moveForward = () => {
             switch (this.direction) {
               case 'N':
                 if (this.y > 0) {
-                  switch (site[this.y-1][this.x]) {
+                  switch (testSite[this.y-1][this.x]) {
                     case 'free':
-                      site[this.y-1][this.x] = this.name;
-                      site[this.y][this.x] = 'free';
+                      testSite[this.y-1][this.x] = this.name;
+                      testSite[this.y][this.x] = 'free';
                       this.y--;
                       this.travelLog.push({x : this.x, y : this.y});
                       console.log(`${this.name} moved forward.`);
@@ -69,10 +71,10 @@ class Rover {
                 break;
               case 'S':
                 if (this.y < 9) {
-                  switch (site[this.y+1][this.x]) {
+                  switch (testSite[this.y+1][this.x]) {
                     case 'free':
-                      site[this.y+1][this.x] = this.name;
-                      site[this.y][this.x] = 'free';
+                      testSite[this.y+1][this.x] = this.name;
+                      testSite[this.y][this.x] = 'free';
                       this.y++;
                       this.travelLog.push({x : this.x, y : this.y});
                       console.log(`${this.name} moved forward.`);
@@ -91,10 +93,10 @@ class Rover {
                 break;
               case 'E':
                 if (this.x < 9) {
-                  switch (site[this.y][this.x+1]) {
+                  switch (testSite[this.y][this.x+1]) {
                     case 'free':
-                      site[this.y][this.x+1] = this.name;
-                      site[this.y][this.x] = 'free';
+                      testSite[this.y][this.x+1] = this.name;
+                      testSite[this.y][this.x] = 'free';
                       this.x++;
                       this.travelLog.push({x : this.x, y : this.y});
                       console.log(`${this.name} moved forward.`);
@@ -113,10 +115,10 @@ class Rover {
                 break;
               case 'W':
                 if (this.x > 0) {
-                  switch (site[this.y][this.x-1]) {
+                  switch (testSite[this.y][this.x-1]) {
                     case 'free':
-                      site[this.y][this.x-1] = this.name;
-                      site[this.y][this.x] = 'free';
+                      testSite[this.y][this.x-1] = this.name;
+                      testSite[this.y][this.x] = 'free';
                       this.x--;
                       this.travelLog.push({x : this.x, y : this.y});
                       console.log(`${this.name} moved forward.`);
@@ -136,15 +138,14 @@ class Rover {
             }
           }
 
-    
-     moveBackward (site) {
+     moveBackward () {
         switch (this.direction) {
           case 'N':
             if (this.y < 9) {
-              switch (site[this.y+1][this.x]) {
+              switch (testSite[this.y+1][this.x]) {
                 case 'free':
-                  site[this.y+1][this.x] = this.name;
-                  site[this.y][this.x] = 'free';
+                  testSite[this.y+1][this.x] = this.name;
+                  testSite[this.y][this.x] = 'free';
                   this.y++;
                   this.travelLog.push({x : this.x, y : this.y});
                   console.log(`${this.name} moved backward.`);
@@ -163,10 +164,10 @@ class Rover {
             break;
           case 'S':
             if (this.y > 0) {
-              switch (site[this.y-1][this.x]) {
+              switch (testSite[this.y-1][this.x]) {
                 case 'free':
-                  site[this.y-1][this.x] = this.name;
-                  site[this.y][this.x] = 'free';
+                  testSite[this.y-1][this.x] = this.name;
+                  testSite[this.y][this.x] = 'free';
                   this.y--;
                   this.travelLog.push({x : this.x, y : this.y});
                   console.log(`${this.name} moved backward.`);
@@ -185,10 +186,10 @@ class Rover {
             break;
           case 'E':
             if (this.x > 0) {
-              switch (site[this.y][this.x-1]) {
+              switch (testSite[this.y][this.x-1]) {
                 case 'free':
-                  site[this.y][this.x-1] = this.name;
-                  site[this.y][this.x] = 'free';
+                  testSite[this.y][this.x-1] = this.name;
+                  testSite[this.y][this.x] = 'free';
                   this.x--;
                   this.travelLog.push({x : this.x, y : this.y});
                   console.log(`${this.name} moved backward.`);
@@ -207,10 +208,10 @@ class Rover {
             break;
           case 'W':
             if (this.x < 9) {
-              switch (site[this.y][this.x+1]) {
+              switch (testSite[this.y][this.x+1]) {
                 case 'free':
-                  site[this.y][this.x+1] = this.name;
-                  site[this.y][this.x] = 'free';
+                  testSite[this.y][this.x+1] = this.name;
+                  testSite[this.y][this.x] = 'free';
                   this.x++;
                   this.travelLog.push({x : this.x, y : this.y});
                   console.log(`${this.name} moved backward.`);
@@ -232,7 +233,7 @@ class Rover {
     }
 
 const testSite = [
-    ['USA', 'free', 'free', 'free', 'free', 'crater', 'free', 'free', 'free', 'China'],
+    ['free', 'free', 'free', 'free', 'free', 'crater', 'free', 'free', 'free', 'free'],
     ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
     ['free', 'free', 'crater', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
     ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
@@ -241,5 +242,9 @@ const testSite = [
     ['free', 'crater', 'free', 'free', 'free', 'free', 'free', 'crater', 'free', 'free'],
     ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
     ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
-    ['free', 'free', 'free', 'free', 'free', 'crater', 'free', 'free', 'free', 'Russia'],
+    ['free', 'free', 'free', 'free', 'free', 'crater', 'free', 'free', 'free', 'free'],
   ];
+
+  function moveRovers () {
+
+  }
