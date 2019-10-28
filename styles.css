@@ -1,5 +1,21 @@
-form {
+.new-rover {
     display: flex;
     flex-direction: column;
     width: 200px;
+}
+
+table {
+    border: 1px solid black;
+    width: 700px;
+}
+
+.pre-game {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.pre-game button {
+    height: 30px;
+    align-self: center;
 }

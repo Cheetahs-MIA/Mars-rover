@@ -8,23 +8,28 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="pre-game">
+        <div class="new-rover">
+            <h2>Create a Rover</h2>
+            <input type="text" placeholder="Choose a name">
+            <label for="direction">Starting direction</label>
+            <select name="direction">
+                <option value="N" selected>North</option>
+                <option value="S">South</option>
+                <option value="E">East</option>
+                <option value="W">West</option>
+            </select>
+            <label for="X">X-coordinate</label>
+            <input type="number" min="0" max="9" name="X">
+            <label for="Y">Y-coordinate</label>
+            <input type="number" min="0" max="9" name="Y">
+            <button>Create Rover</button>
+        </div>
+        <button id="start">Start the game!</button>
+    </div>
 
-    <form action="POST">
-        <h2>Create a Rover</h2>
-        <input type="text" placeholder="Choose a name">
-        <label for="direction">Starting direction</label>
-        <select name="direction">
-            <option value="N" selected>North</option>
-            <option value="S">South</option>
-            <option value="E">East</option>
-            <option value="W">West</option>
-        </select>
-        <label for="X">X-coordinate</label>
-        <input type="number" min="0" max="19" name="X">
-        <label for="Y">Y-coordinate</label>
-        <input type="number" min="0" max="19" name="Y">
-    <button>Create Rover</button>
-    </form>
+
     <script src="./rovers.js"></script>
+    <script src="./game.js"></script>
 </body>
 </html>

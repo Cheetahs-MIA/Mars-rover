@@ -231,20 +231,3 @@ class Rover {
         }
       }
     }
-
-const testSite = [
-    ['free', 'free', 'free', 'free', 'free', 'crater', 'free', 'free', 'free', 'free'],
-    ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
-    ['free', 'free', 'crater', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
-    ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
-    ['free', 'free', 'free', 'crater', 'free', 'free', 'free', 'free', 'free', 'free'],
-    ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
-    ['free', 'crater', 'free', 'free', 'free', 'free', 'free', 'crater', 'free', 'free'],
-    ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
-    ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free'],
-    ['free', 'free', 'free', 'free', 'free', 'crater', 'free', 'free', 'free', 'free'],
-  ];
-
-  function moveRovers () {
-
-  }
