@@ -11,7 +11,7 @@
     <div class="pre-game">
         <div class="new-rover">
             <h2>Create a Rover</h2>
-            <input type="text" placeholder="Choose a name">
+            <input type="text" placeholder="Choose a name" value="yo">
             <label for="color">Choose a color</label>
             <select name="color">
                 <option value="FC8272" selected>Red</option>
@@ -27,17 +27,16 @@
                 <option value="W">West</option>
             </select>
             <label for="X">X-coordinate</label>
-            <input type="number" min="0" max="9" name="X">
+            <input type="number" min="0" max="9" name="X" value="3">
             <label for="Y">Y-coordinate</label>
-            <input type="number" min="0" max="9" name="Y">
+            <input type="number" min="0" max="9" name="Y" value="3"> 
             <button>Create Rover</button>
         </div>
         <button id="start">Start the game!</button>
         
     </div>
 
-
     <script src="./rovers.js"></script>
-    <script src="./game.js"></script>
+
 </body>
 </html>
