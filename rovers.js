@@ -277,6 +277,7 @@ window.onload = () => {
 
     
     function createTable () {
+      document.querySelector('h1').style.display = 'flex';
         let table = document.createElement('table');
         let tableBody = document.createElement('tbody');
         testSite.forEach((rowData) => {
@@ -312,7 +313,7 @@ window.onload = () => {
         });
     
         table.appendChild(tableBody);
-        document.body.appendChild(table);
+        document.querySelector('.site').appendChild(table);
         document.querySelector('#start').style.display = 'none';
         document.addEventListener('keydown', logKey);
         rotatePic(rovers[0].direction);
