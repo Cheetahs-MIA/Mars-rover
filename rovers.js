@@ -313,7 +313,7 @@ window.onload = () => {
     
         table.appendChild(tableBody);
         document.body.appendChild(table);
-        // document.querySelector('.pre-game').style.display = 'none';
+        document.querySelector('#start').style.display = 'none';
         document.addEventListener('keydown', logKey);
         rotatePic(rovers[0].direction);
     }
