@@ -253,21 +253,28 @@ window.onload = () => {
     ];
     
     function createRover () {
-        let name = document.querySelector("body > div > div > input[type=text]:nth-child(2)");
-        let direction = document.querySelector("body > div > div > select:nth-child(6)");
-        let xCoordinate = document.querySelector("body > div > div > input[type=number]:nth-child(8)");
-        let yCoordinate = document.querySelector("body > div > div > input[type=number]:nth-child(10)");
-        let color = document.querySelector("body > div > div > select:nth-child(4)");
-        let newRover = new Rover(name.value, direction.value, xCoordinate.value, yCoordinate.value, color.value);
-        name.value = '';
-        direction.value = 'N';
-        xCoordinate.value = 0;
-        yCoordinate.value = 0;
-        color.value = 'FC8272'
+        // let name = document.querySelector("body > div > div > input[type=text]:nth-child(2)");
+        // let direction = document.querySelector("body > div > div > select:nth-child(6)");
+        // let xCoordinate = document.querySelector("body > div > div > input[type=number]:nth-child(8)");
+        // let yCoordinate = document.querySelector("body > div > div > input[type=number]:nth-child(10)");
+        // let color = document.querySelector("body > div > div > select:nth-child(4)");
+        let name = 'Rvr';
+        let direction = 'N';
+        let xCoordinate = 3;
+        let yCoordinate = 3;
+        let color = 'FC8272';
+
+        let newRover = new Rover(name, direction, xCoordinate, yCoordinate, color);
+        // name.value = '';
+        // direction.value = 'N';
+        // xCoordinate.value = 0;
+        // yCoordinate.value = 0;
+        // color.value = 'FC8272'
     
         console.log('Rover created')
+        createTable();
     }
-    document.querySelector(".new-rover > button").onclick = createRover;
+
     
     function createTable () {
         let table = document.createElement('table');
@@ -277,17 +284,15 @@ window.onload = () => {
             rowData.forEach((cellData) => {
                 let cell = document.createElement('td');
                 if (cellData === 'crater') {
-                    let item = document.createElement('img');
-                    item.setAttribute("src", "https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/12/21/09/MarsIceCrater2112.jpg");
-                    item.style.width = '40px';
-                    item.style.height = '40px';
-                    cell.appendChild(item);
+                  cell.style.backgroundImage = `url('https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/12/21/09/MarsIceCrater2112.jpg')`;
+                  cell.style.width = '40px';
+                  cell.style.height = '40px';
+                  cell.style.backgroundSize = 'containdww';
                 } else if (cellData === 'free') {
-                    let item = document.createElement('img');
-                    item.setAttribute("src", "http://www.nasa.gov/sites/default/files/images/685378main_pia16130-full_full.jpg");
-                    item.style.width = '40px';
-                    item.style.height = '40px';
-                    cell.appendChild(item);
+                  cell.style.backgroundImage = `url('http://www.nasa.gov/sites/default/files/images/685378main_pia16130-full_full.jpg')`;
+                  cell.style.width = '40px';
+                  cell.style.height = '40px';
+                  cell.style.backgroundSize = 'contain';
                 } else {
                     let theColor = '';
                     for (let i = 0; i < rovers.length; i++) {
@@ -308,12 +313,12 @@ window.onload = () => {
     
         table.appendChild(tableBody);
         document.body.appendChild(table);
-        document.querySelector('.pre-game').style.display = 'none';
+        // document.querySelector('.pre-game').style.display = 'none';
         document.addEventListener('keydown', logKey);
         rotatePic(rovers[0].direction);
     }
     
-    document.querySelector('#start').onclick = createTable;
+    document.querySelector("#start").onclick = createRover;
     
     
     
