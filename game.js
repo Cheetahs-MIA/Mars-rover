@@ -33,7 +33,6 @@ function createTable () {
     let tableBody = document.createElement('tbody');
     testSite.forEach((rowData) => {
         let row = document.createElement('tr');
-
         rowData.forEach((cellData) => {
             let cell = document.createElement('td');
             if (cellData === 'crater') {
@@ -58,7 +57,6 @@ function createTable () {
                 let item = document.createElement('span');
                 item.setAttribute("class", "a-rover");
                 item.innerText = `${cellData}`;
-                item.style.backgroundColor = `#${theColor}`;
                 cell.appendChild(item);
             }          
             row.appendChild(cell);
@@ -70,6 +68,46 @@ function createTable () {
     table.appendChild(tableBody);
     document.body.appendChild(table);
     document.querySelector('.pre-game').style.display = 'none';
+    document.addEventListener('keydown', logKey);
 }
 
 document.querySelector('#start').onclick = createTable;
+
+
+
+function logKey(e) {
+    switch (e.key) {
+        case 'w':
+            rovers[0].moveForward();
+            break;
+        case 's':
+            rovers[0].moveBackward();
+            break;
+        case 'a':
+            rovers[0].turnLeft();
+            break;
+        case 'd':
+            rovers[0].turnRight();
+            break;
+        default:
+            break;      
+    }
+    console.log(testSite)
+    switch (rovers[0].direction) {
+        case 'N':
+            document.querySelector('.a-rover').style.transform = 'rotate(0deg)';
+            console.log(rovers[0].direction);
+            break;
+        case 'E':
+            document.querySelector('.a-rover').style.transform = 'rotate(90deg)';
+            break;
+        case 'S':
+            document.querySelector('.a-rover').style.transform = 'rotate(180deg)';
+            break;
+        case 'W':
+            document.querySelector('.a-rover').style.transform = 'rotate(270deg)';
+            break;
+    }
+    document.querySelector('table').remove();
+    createTable();
+}

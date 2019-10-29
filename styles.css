@@ -21,11 +21,14 @@ table {
 }
 
 .a-rover {
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('https://jundroo.blob.core.windows.net/simpleplanes/GameData/aircraft/291/5gm7rZ-TopView.png');
+    background-size: contain;
     width: 40px;
     height: 40px;
     margin: 0;
 }
+
+
