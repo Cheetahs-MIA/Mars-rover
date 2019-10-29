@@ -111,3 +111,4 @@ function logKey(e) {
     document.querySelector('table').remove();
     createTable();
 }
+
